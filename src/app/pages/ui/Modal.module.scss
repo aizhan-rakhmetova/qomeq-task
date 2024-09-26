@@ -1,0 +1,114 @@
+@mixin button($bg-color: white, $border-color: #C25959, $text-color: #C25959) {
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: $bg-color;
+    border: 1px solid $border-color;
+    color: $text-color;
+    font-weight: bold;
+}
+
+.container {
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.selectContainer {
+    margin: 20px 0;
+    border: none;
+}
+
+.select {
+    @include button();
+}
+
+.button {
+    @include button();
+}
+
+.buttonsWrapper {
+    padding-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.primaryButton {
+    @include button(#C25959, #C25959, white);
+    width: 150px;
+}
+
+.secondaryButton {
+    @include button();
+    width: 100px;
+}
+
+.modalWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    z-index: 100;
+    overflow: auto;
+}
+
+.modal {
+    position: relative;
+    margin-top: 20px;
+    border: 0.5px solid #7A7EA0;
+    border-radius: 16px;
+    background: #F8F9FB;
+    z-index: 101;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-height: 90vh;
+    overflow: auto;
+
+    align-items: center;
+    max-width: 700px;
+    width: fit-content;
+}
+
+.scheduleGrid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(60px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.cell {
+    padding: 10px;
+    background: #f0f0f0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 16px;
+    border: 1px solid #f0f0f0;
+    user-select: none;
+    width: 80px;
+}
+
+.cell:hover {
+    background: #e0e0e0;
+}
+
+.selected {
+    border: 2px solid #7A7EA0;
+}
+
+.label {
+    font-weight: bold;
+}
